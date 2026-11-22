@@ -1,0 +1,1056 @@
+{
+  "excluded_dev_example_ids": [],
+  "run_numbers": [
+    1
+  ],
+  "split": "test",
+  "views": {
+    "all": {
+      "A": {
+        "claim_type": {
+          "accuracy": 0.0,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              16
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              11
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              8
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              7
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              6
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              12
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "labels": [
+            "own_damage",
+            "third_party_liability",
+            "theft",
+            "total_loss",
+            "glass_only",
+            "not_a_claim",
+            "__invalid_prediction__"
+          ],
+          "macro_f1": 0.0
+        },
+        "expected_predictions": 60,
+        "fields": {
+          "estimated_amount_inr": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "incident_date": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "injury_reported": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "location": {
+            "exact_match": 0.0,
+            "lenient_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "police_report_filed": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "policy_number": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "vehicle_reg_no": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          }
+        },
+        "hallucination": {
+          "overall": {
+            "count": 0,
+            "rate": 0.0
+          },
+          "per_field": {
+            "estimated_amount_inr": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "incident_date": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "injury_reported": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "location": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "police_report_filed": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "policy_number": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "vehicle_reg_no": {
+              "count": 0,
+              "rate": 0.0
+            }
+          }
+        },
+        "missing_predictions": 60,
+        "parse_ok_rate": 0.0,
+        "prompt_id": "A",
+        "record_count": 60,
+        "run_count": 1,
+        "run_to_run_agreement": {
+          "claim_type": null,
+          "parsed_json": null
+        },
+        "safety_critical": {
+          "high_urgency_false_negatives": 15,
+          "high_urgency_recall": 0.0,
+          "injury_reported_true_false_negatives": 10,
+          "injury_reported_true_recall": 0.0
+        },
+        "schema_ok_rate": 0.0,
+        "split": "test",
+        "urgency": {
+          "accuracy": 0.0,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              0,
+              15
+            ],
+            [
+              0,
+              0,
+              0,
+              33
+            ],
+            [
+              0,
+              0,
+              0,
+              12
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "labels": [
+            "high",
+            "medium",
+            "low",
+            "__invalid_prediction__"
+          ],
+          "macro_f1": 0.0
+        },
+        "usage": {
+          "cost_per_1000_claims": null,
+          "mean_input_tokens": null,
+          "mean_latency_seconds": null,
+          "mean_output_tokens": null,
+          "mean_reasoning_tokens": null
+        },
+        "view": "all"
+      },
+      "B-k3": {
+        "claim_type": {
+          "accuracy": 0.0,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              16
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              11
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              8
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              7
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              6
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              12
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "labels": [
+            "own_damage",
+            "third_party_liability",
+            "theft",
+            "total_loss",
+            "glass_only",
+            "not_a_claim",
+            "__invalid_prediction__"
+          ],
+          "macro_f1": 0.0
+        },
+        "expected_predictions": 60,
+        "fields": {
+          "estimated_amount_inr": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "incident_date": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "injury_reported": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "location": {
+            "exact_match": 0.0,
+            "lenient_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "police_report_filed": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "policy_number": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "vehicle_reg_no": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          }
+        },
+        "hallucination": {
+          "overall": {
+            "count": 0,
+            "rate": 0.0
+          },
+          "per_field": {
+            "estimated_amount_inr": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "incident_date": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "injury_reported": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "location": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "police_report_filed": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "policy_number": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "vehicle_reg_no": {
+              "count": 0,
+              "rate": 0.0
+            }
+          }
+        },
+        "missing_predictions": 60,
+        "parse_ok_rate": 0.0,
+        "prompt_id": "B-k3",
+        "record_count": 60,
+        "run_count": 1,
+        "run_to_run_agreement": {
+          "claim_type": null,
+          "parsed_json": null
+        },
+        "safety_critical": {
+          "high_urgency_false_negatives": 15,
+          "high_urgency_recall": 0.0,
+          "injury_reported_true_false_negatives": 10,
+          "injury_reported_true_recall": 0.0
+        },
+        "schema_ok_rate": 0.0,
+        "split": "test",
+        "urgency": {
+          "accuracy": 0.0,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              0,
+              15
+            ],
+            [
+              0,
+              0,
+              0,
+              33
+            ],
+            [
+              0,
+              0,
+              0,
+              12
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "labels": [
+            "high",
+            "medium",
+            "low",
+            "__invalid_prediction__"
+          ],
+          "macro_f1": 0.0
+        },
+        "usage": {
+          "cost_per_1000_claims": null,
+          "mean_input_tokens": null,
+          "mean_latency_seconds": null,
+          "mean_output_tokens": null,
+          "mean_reasoning_tokens": null
+        },
+        "view": "all"
+      },
+      "B-k5": {
+        "claim_type": {
+          "accuracy": 0.0,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              16
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              11
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              8
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              7
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              6
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              12
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "labels": [
+            "own_damage",
+            "third_party_liability",
+            "theft",
+            "total_loss",
+            "glass_only",
+            "not_a_claim",
+            "__invalid_prediction__"
+          ],
+          "macro_f1": 0.0
+        },
+        "expected_predictions": 60,
+        "fields": {
+          "estimated_amount_inr": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "incident_date": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "injury_reported": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "location": {
+            "exact_match": 0.0,
+            "lenient_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "police_report_filed": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "policy_number": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "vehicle_reg_no": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          }
+        },
+        "hallucination": {
+          "overall": {
+            "count": 0,
+            "rate": 0.0
+          },
+          "per_field": {
+            "estimated_amount_inr": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "incident_date": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "injury_reported": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "location": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "police_report_filed": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "policy_number": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "vehicle_reg_no": {
+              "count": 0,
+              "rate": 0.0
+            }
+          }
+        },
+        "missing_predictions": 60,
+        "parse_ok_rate": 0.0,
+        "prompt_id": "B-k5",
+        "record_count": 60,
+        "run_count": 1,
+        "run_to_run_agreement": {
+          "claim_type": null,
+          "parsed_json": null
+        },
+        "safety_critical": {
+          "high_urgency_false_negatives": 15,
+          "high_urgency_recall": 0.0,
+          "injury_reported_true_false_negatives": 10,
+          "injury_reported_true_recall": 0.0
+        },
+        "schema_ok_rate": 0.0,
+        "split": "test",
+        "urgency": {
+          "accuracy": 0.0,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              0,
+              15
+            ],
+            [
+              0,
+              0,
+              0,
+              33
+            ],
+            [
+              0,
+              0,
+              0,
+              12
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "labels": [
+            "high",
+            "medium",
+            "low",
+            "__invalid_prediction__"
+          ],
+          "macro_f1": 0.0
+        },
+        "usage": {
+          "cost_per_1000_claims": null,
+          "mean_input_tokens": null,
+          "mean_latency_seconds": null,
+          "mean_output_tokens": null,
+          "mean_reasoning_tokens": null
+        },
+        "view": "all"
+      },
+      "B-k8": {
+        "claim_type": {
+          "accuracy": 0.0,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              16
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              11
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              8
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              7
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              6
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              12
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "labels": [
+            "own_damage",
+            "third_party_liability",
+            "theft",
+            "total_loss",
+            "glass_only",
+            "not_a_claim",
+            "__invalid_prediction__"
+          ],
+          "macro_f1": 0.0
+        },
+        "expected_predictions": 60,
+        "fields": {
+          "estimated_amount_inr": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "incident_date": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "injury_reported": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "location": {
+            "exact_match": 0.0,
+            "lenient_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "police_report_filed": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "policy_number": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "vehicle_reg_no": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          }
+        },
+        "hallucination": {
+          "overall": {
+            "count": 0,
+            "rate": 0.0
+          },
+          "per_field": {
+            "estimated_amount_inr": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "incident_date": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "injury_reported": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "location": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "police_report_filed": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "policy_number": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "vehicle_reg_no": {
+              "count": 0,
+              "rate": 0.0
+            }
+          }
+        },
+        "missing_predictions": 60,
+        "parse_ok_rate": 0.0,
+        "prompt_id": "B-k8",
+        "record_count": 60,
+        "run_count": 1,
+        "run_to_run_agreement": {
+          "claim_type": null,
+          "parsed_json": null
+        },
+        "safety_critical": {
+          "high_urgency_false_negatives": 15,
+          "high_urgency_recall": 0.0,
+          "injury_reported_true_false_negatives": 10,
+          "injury_reported_true_recall": 0.0
+        },
+        "schema_ok_rate": 0.0,
+        "split": "test",
+        "urgency": {
+          "accuracy": 0.0,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              0,
+              15
+            ],
+            [
+              0,
+              0,
+              0,
+              33
+            ],
+            [
+              0,
+              0,
+              0,
+              12
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "labels": [
+            "high",
+            "medium",
+            "low",
+            "__invalid_prediction__"
+          ],
+          "macro_f1": 0.0
+        },
+        "usage": {
+          "cost_per_1000_claims": null,
+          "mean_input_tokens": null,
+          "mean_latency_seconds": null,
+          "mean_output_tokens": null,
+          "mean_reasoning_tokens": null
+        },
+        "view": "all"
+      },
+      "C": {
+        "claim_type": {
+          "accuracy": 0.0,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              16
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              11
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              8
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              7
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              6
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              12
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "labels": [
+            "own_damage",
+            "third_party_liability",
+            "theft",
+            "total_loss",
+            "glass_only",
+            "not_a_claim",
+            "__invalid_prediction__"
+          ],
+          "macro_f1": 0.0
+        },
+        "expected_predictions": 60,
+        "fields": {
+          "estimated_amount_inr": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "incident_date": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "injury_reported": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "location": {
+            "exact_match": 0.0,
+            "lenient_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "police_report_filed": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "policy_number": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          },
+          "vehicle_reg_no": {
+            "exact_match": 0.0,
+            "macro_f1": 0.0
+          }
+        },
+        "hallucination": {
+          "overall": {
+            "count": 0,
+            "rate": 0.0
+          },
+          "per_field": {
+            "estimated_amount_inr": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "incident_date": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "injury_reported": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "location": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "police_report_filed": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "policy_number": {
+              "count": 0,
+              "rate": 0.0
+            },
+            "vehicle_reg_no": {
+              "count": 0,
+              "rate": 0.0
+            }
+          }
+        },
+        "missing_predictions": 60,
+        "parse_ok_rate": 0.0,
+        "prompt_id": "C",
+        "record_count": 60,
+        "run_count": 1,
+        "run_to_run_agreement": {
+          "claim_type": null,
+          "parsed_json": null
+        },
+        "safety_critical": {
+          "high_urgency_false_negatives": 15,
+          "high_urgency_recall": 0.0,
+          "injury_reported_true_false_negatives": 10,
+          "injury_reported_true_recall": 0.0
+        },
+        "schema_ok_rate": 0.0,
+        "split": "test",
+        "urgency": {
+          "accuracy": 0.0,
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              0,
+              15
+            ],
+            [
+              0,
+              0,
+              0,
+              33
+            ],
+            [
+              0,
+              0,
+              0,
+              12
+            ],
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "labels": [
+            "high",
+            "medium",
+            "low",
+            "__invalid_prediction__"
+          ],
+          "macro_f1": 0.0
+        },
+        "usage": {
+          "cost_per_1000_claims": null,
+          "mean_input_tokens": null,
+          "mean_latency_seconds": null,
+          "mean_output_tokens": null,
+          "mean_reasoning_tokens": null
+        },
+        "view": "all"
+      }
+    }
+  }
+}

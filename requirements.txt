@@ -1,0 +1,7 @@
+groq
+python-dotenv
+pandas
+scikit-learn
+matplotlib
+openpyxl
+pytest

@@ -1,0 +1,26 @@
+{
+  "created_utc": "2026-11-15T13:07:36.619457+00:00",
+  "dataset_snapshot_sha256": "414b201b52eeddec6b4c5d7368d9df932bcb1ce0c6c7e6f46895d448c09f38f9",
+  "evaluation_id": "dev-f9639d694d88-e7b8df00",
+  "input_hashes": {
+    "dataset": "414b201b52eeddec6b4c5d7368d9df932bcb1ce0c6c7e6f46895d448c09f38f9",
+    "prompt_sha256": {
+      "A": "12f5c5dda3ab81dfee81de2fbd58342f4a11cd1bb5e3057c0ca541d0fcb92788",
+      "B-k3": "7d55395cf0647736f5e5f4b4318bce2a99883fb7acb585e9e4039fee8a153506",
+      "B-k5": "0fac7f778eef916b6e717809ea1f79f421609abf36b791ff1f4ebe32f50ab470",
+      "B-k8": "54238bfaf399c91e99b001c5e6d45a3ea609c07c1e790f68042f3413df197fd5",
+      "C": "161ea901d55b84ff761f01b83199341bd2db91d9422a1238c857a9d0e33c0b8d"
+    },
+    "results_store": "bea483e31df142f7efd54e19e9f3b31b530b55041bfb8199f14d7dfe4d18c665"
+  },
+  "ledger_sha256": null,
+  "output_hashes": {
+    "metrics.json": "023de57e813a1e4b2bfabf8722a04f93b566b47edc25cf05827c38e36335699d",
+    "results.csv": "aeb4e240542d7ff1e99dfa0453c294d55089eb1fe88ddcedea14732e60fd39cd"
+  },
+  "pinned_expected_plan_digest": "f9639d694d8847dc16dc7583eee4d404c744580d51f639fa2cdd152c23915604",
+  "plan_digest": "f9639d694d8847dc16dc7583eee4d404c744580d51f639fa2cdd152c23915604",
+  "results_store_sha256": "bea483e31df142f7efd54e19e9f3b31b530b55041bfb8199f14d7dfe4d18c665",
+  "schema_version": "development-eval-bundle/v1",
+  "split": "dev"
+}

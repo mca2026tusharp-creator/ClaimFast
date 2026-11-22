@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ClaimFast — Case Study 1</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  
+    @page { size: A4; margin: 12mm 12mm 14mm; @bottom-right { content: "Page " counter(page); color: #526170; font: 8pt Arial, sans-serif; } }
+    html { color: #1d2730; background: #fff; }
+    body { max-width: none; margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; font-size: 9pt; line-height: 1.2; color: #1d2730; }
+    header#title-block-header { display: none; }
+    h1 { font-size: 21pt; color: #15395b; margin: 0 0 8pt; }
+    h2 { font-size: 13pt; color: #15395b; border-bottom: 1px solid #c5d2df; padding-bottom: 3pt; margin: 12pt 0 5pt; }
+    h3 { font-size: 10.5pt; color: #244e70; margin: 9pt 0 4pt; }
+    p { margin: 4pt 0 6pt; }
+    li { margin: 2pt 0; }
+    blockquote { margin: 7pt 0; padding: 7pt 9pt; border-left: 4px solid #b94a20; background: #fff3e7; color: #1d2730; }
+    table { width: 100%; border-collapse: collapse; table-layout: auto; margin: 4pt 0 5pt; font-size: 7.4pt; line-height: 1.18; break-inside: avoid-page; page-break-inside: avoid; }
+    th, td { border: 1px solid #bdc9d4; padding: 3pt 4pt; vertical-align: top; overflow-wrap: anywhere; }
+    th { background: #e8eef4; color: #15395b; }
+    thead { display: table-header-group; }
+    tr { break-inside: avoid-page; page-break-inside: avoid; }
+    code { font-size: 85%; overflow-wrap: anywhere; }
+    a { color: #15395b; text-decoration: none; }
+    @media print { html, body { background: #fff; } body { font-size: 9pt; } h2, h3 { break-after: avoid-page; page-break-after: avoid; } p, li { orphans: 3; widows: 3; } a { color: inherit; text-decoration: none; } }
+
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">ClaimFast — Case Study 1</h1>
+</header>
+<h1 id="claimfast-case-study-1">ClaimFast — Case Study 1</h1>
+<p><strong>Submission report — DEVELOPMENT-ONLY results</strong><br />
+Evaluation bundle: <code>dev-f9639d694d88-e7b8df00</code><br />
+Evaluation date: 2026-11-15</p>
+<blockquote>
+<p><strong>DEVELOPMENT-ONLY — NOT HELD-OUT TEST PERFORMANCE.</strong>
+All model metrics in this report come from 20 synthetic development
+records and one run per prompt. The required 60-record held-out
+evaluation with three runs has <strong>not</strong> been completed.</p>
+</blockquote>
+<h2 id="executive-summary">Executive summary</h2>
+<p>ClaimFast turns free-form motor-insurance claim messages into a fixed
+nine-field JSON record for downstream review. The verified development
+bundle contains 100 planned observations (five prompts × 20 records ×
+one run): 99 valid results and one invalid Prompt C result. No planned
+observations are missing. On the common 12-record non-example
+development view, A and all three B variants tie at 1.000 claim-type and
+urgency accuracy; C is 0.917 on both. Few-shot gains over A and a
+benefit from reasoning are <strong>not demonstrated</strong> by these
+results.</p>
+<p>This is a development debugging result, not a held-out evaluation,
+safety certification, or release decision. A is a reasonable control for
+a future test because its development scores tie the smaller few-shot
+variants while using fewer mean input tokens; no strategy is approved
+for production.</p>
+<h2 id="problem-and-business-context">1. Problem and business
+context</h2>
+<p>Claim intake messages may combine incident details, administrative
+questions, and missing or conflicting information. The prototype
+standardizes first-pass claim classification and extraction for a
+human-reviewed workflow. It predicts claim type and urgency and extracts
+policy number, incident date, location, vehicle registration, estimated
+amount, injury status, and police-report status.</p>
+<p>The experiment measures structured prediction on synthetic messages.
+It does not measure customer outcomes, processing-time reduction, cost
+savings, or a live workflow.</p>
+<h2 id="dataset-and-labeling-approach">2. Dataset and labeling
+approach</h2>
+<p>The project has 20 development records and 60 held-out records (80
+total). An offline structural validation found all 80 JSONL records
+valid, with the same nine label fields in each. Dataset tag metadata
+records the required variety, including typos, missing fields, Hinglish,
+multi-incident messages, forwarded chains, ambiguous theft/glass cases,
+and short/long messages. The held-out file was not used for prompt
+tuning; no held-out model metrics are reported here.</p>
+<p>Development label counts are own damage 5, third-party liability 4,
+theft 3, total loss 2, glass only 2, and not a claim 4; urgency counts
+are high 6, medium 10, and low 4. Labels are first-pass synthetic labels
+under the project’s operational <a
+href="../data/labeling_guide.md">labeling guide</a>. Its interpretations
+are provisional. No independent second-review evidence for at least 20
+labels was found. The concise <a
+href="one_page_labeling_guide.md">one-page reviewer guide</a> is
+prepared, and a <a href="development_label_review_worksheet.xlsx">blank
+20-record worksheet</a> is available; neither constitutes a completed
+human review. Conflicts still need a signed-off adjudication policy.</p>
+<p>The common <code>dev_eval</code> view removes the union of the
+development examples used in the B prompts and contains 12 records. The
+<code>all</code> view contains all 20 and therefore includes prompt
+examples. Both views are development-only.</p>
+<h2 id="prompt-strategies-and-experiment-configuration">3. Prompt
+strategies and experiment configuration</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Prompt</th>
+<th>Strategy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>Zero-shot task instructions and schema; no worked examples.</td>
+</tr>
+<tr>
+<td>B-k3</td>
+<td>Three nested development examples: DEV-01, DEV-06, DEV-17.</td>
+</tr>
+<tr>
+<td>B-k5</td>
+<td>B-k3 plus DEV-10 and DEV-14.</td>
+</tr>
+<tr>
+<td>B-k8</td>
+<td>B-k5 plus DEV-11, DEV-03, and DEV-09.</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Requests a concise evidence summary followed by a
+<code>&lt;final_json&gt;</code> block.</td>
+</tr>
+</tbody>
+</table>
+<p>The library contains A, B-k3, B-k5, B-k8, and C. D is optional and
+was not implemented. The rubric asks few-shot examples to cover all
+classes: k=3 covers three of six claim types, k=5 covers five, and k=8
+covers all six. Because each example has exactly one claim-type label,
+covering six classes requires at least six examples. Thus literal
+all-class coverage for k=3 and k=5 is mathematically impossible without
+changing the requested k or the single-label task. The current C prompt
+requests an evidence summary, not the rubric’s step-by-step
+chain-of-thought format. A separately versioned <a
+href="../prompts/prompt_c_evidence_summary_v1.3_candidate.md">evidence-summary
+candidate</a> is provided for review, but it is untested and is not
+equivalent to hidden chain-of-thought. The evaluated baseline prompt
+files were not changed.</p>
+<p>All variants used <code>openai/gpt-oss-120b</code>, temperature 0,
+maximum 800 output tokens, low reasoning effort, hidden reasoning
+format, and one run. Examples were selected from development records
+only. The output must contain exactly nine schema fields. An unusable
+response remains an invalid prediction in the denominator rather than
+being dropped.</p>
+<h2 id="development-results">4. Development results</h2>
+<h3 id="classification">Classification</h3>
+<p><strong>Table 1 — Classification on the development split.</strong>
+Accuracy and macro-F1 are unitless proportions; <code>all</code> uses
+n=20 and <code>dev_eval</code> uses n=12.</p>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr>
+<th>Prompt</th>
+<th style="text-align: right;">Claim type, all</th>
+<th style="text-align: right;">Urgency, all</th>
+<th style="text-align: right;">Claim type, dev_eval</th>
+<th style="text-align: right;">Urgency, dev_eval</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+</tr>
+<tr>
+<td>B-k3</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+</tr>
+<tr>
+<td>B-k5</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+</tr>
+<tr>
+<td>B-k8</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+</tr>
+<tr>
+<td>C</td>
+<td style="text-align: right;">0.950 / 0.976</td>
+<td style="text-align: right;">0.950 / 0.952</td>
+<td style="text-align: right;">0.917 / 0.967</td>
+<td style="text-align: right;">0.917 / 0.933</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Takeaway:</strong> A and B have identical classification
+scores in this sample; C’s invalid DEV-20 response lowers its accuracy.
+These small development denominators do not establish comparative
+generalization.</p>
+<h3 id="confusion-matrices">Confusion matrices</h3>
+<p><strong>Table 2 — Claim-type confusion matrix, <code>dev_eval</code>
+(n=12, counts; rows are gold, columns predicted).</strong> OD=own
+damage, TPL=third-party liability, TH=theft, TL=total loss, GL=glass
+only, NC=not a claim. A, B-k3, B-k5, and B-k8 have the same matrix shown
+below.</p>
+<table>
+<thead>
+<tr>
+<th>Gold  Predicted</th>
+<th style="text-align: right;">OD</th>
+<th style="text-align: right;">TPL</th>
+<th style="text-align: right;">TH</th>
+<th style="text-align: right;">TL</th>
+<th style="text-align: right;">GL</th>
+<th style="text-align: right;">NC</th>
+<th style="text-align: right;">Invalid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OD</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>TPL</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>TH</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>TL</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>GL</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>NC</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Table 3 — Claim-type confusion matrix, Prompt C,
+<code>dev_eval</code> (n=12, counts; rows are gold, columns
+predicted).</strong></p>
+<table>
+<thead>
+<tr>
+<th>Gold  Predicted</th>
+<th style="text-align: right;">OD</th>
+<th style="text-align: right;">TPL</th>
+<th style="text-align: right;">TH</th>
+<th style="text-align: right;">TL</th>
+<th style="text-align: right;">GL</th>
+<th style="text-align: right;">NC</th>
+<th style="text-align: right;">Invalid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OD</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>TPL</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>TH</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>TL</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>GL</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>NC</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Takeaway:</strong> C’s sole confusion in this view is the
+invalid DEV-20 output, whose gold class is not a claim. The other four
+prompts have no class confusions in this view.</p>
+<p><strong>Table 4 — Urgency confusion matrices, <code>dev_eval</code>
+(n=12, counts; rows are gold, columns predicted).</strong> A and all B
+variants share the first matrix.</p>
+<table>
+<thead>
+<tr>
+<th>A/B prompts: gold  predicted</th>
+<th style="text-align: right;">High</th>
+<th style="text-align: right;">Medium</th>
+<th style="text-align: right;">Low</th>
+<th style="text-align: right;">Invalid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>High</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Low</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Prompt C: gold  predicted</th>
+<th style="text-align: right;">High</th>
+<th style="text-align: right;">Medium</th>
+<th style="text-align: right;">Low</th>
+<th style="text-align: right;">Invalid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>High</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Low</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Takeaway:</strong> C’s invalid result is the only urgency
+error in <code>dev_eval</code>; the matrices are development-only, not
+held-out test matrices.</p>
+<h3 id="per-field-exact-match-and-f1">Per-field exact match and F1</h3>
+<p><strong>Table 5 — Field-level exact match / macro-F1 by prompt and
+view.</strong> Each cell is a unitless proportion.
+<code>A/B-k3/B-k5</code> are grouped because their reported field
+metrics are identical in both views.</p>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr>
+<th>Field</th>
+<th style="text-align: right;">A/B-k3/B-k5 all</th>
+<th style="text-align: right;">B-k8 all</th>
+<th style="text-align: right;">C all</th>
+<th style="text-align: right;">A/B-k3/B-k5 dev_eval</th>
+<th style="text-align: right;">B-k8 dev_eval</th>
+<th style="text-align: right;">C dev_eval</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Policy number</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">0.950 / 0.994</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">0.917 / 0.982</td>
+</tr>
+<tr>
+<td>Incident date</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">0.950 / 0.995</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">0.917 / 0.985</td>
+</tr>
+<tr>
+<td>Location</td>
+<td style="text-align: right;">0.950 / 0.875</td>
+<td style="text-align: right;">0.950 / 0.875</td>
+<td style="text-align: right;">0.900 / 0.869</td>
+<td style="text-align: right;">0.917 / 0.778</td>
+<td style="text-align: right;">0.917 / 0.778</td>
+<td style="text-align: right;">0.833 / 0.765</td>
+</tr>
+<tr>
+<td>Vehicle registration</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">0.950 / 0.995</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">0.917 / 0.987</td>
+</tr>
+<tr>
+<td>Estimated amount</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">0.950 / 0.994</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">0.917 / 0.985</td>
+</tr>
+<tr>
+<td>Injury reported</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">0.950 / 0.656</td>
+<td style="text-align: right;">0.950 / 0.989</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">0.917 / 0.647</td>
+<td style="text-align: right;">0.917 / 0.978</td>
+</tr>
+<tr>
+<td>Police report</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">0.950 / 0.988</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">0.917 / 0.980</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Takeaway:</strong> Location is the only strict-match mismatch
+shared by all prompts; B-k8 also has one injury-field mismatch. Lenient
+location match is 1.000 for A/B prompts and 0.950 for C in
+<code>all</code>, and 1.000 / 0.917 respectively in
+<code>dev_eval</code>.</p>
+<h3 id="validity-safety-hallucination-and-operations">Validity, safety,
+hallucination, and operations</h3>
+<p><strong>Table 6 — Parse/schema validity.</strong> Values are valid
+responses / expected responses, reported as proportions; invalid output
+is retained in the denominator.</p>
+<table>
+<thead>
+<tr>
+<th>Prompt</th>
+<th style="text-align: right;">Parse/schema, all (n=20)</th>
+<th style="text-align: right;">Parse/schema, dev_eval (n=12)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A, B-k3, B-k5, B-k8</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+<td style="text-align: right;">1.000 / 1.000</td>
+</tr>
+<tr>
+<td>C</td>
+<td style="text-align: right;">0.950 / 0.950</td>
+<td style="text-align: right;">0.917 / 0.917</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Takeaway:</strong> A and B outputs are fully parse/schema
+valid in this sample; Prompt C’s one invalid response lowers its
+rates.</p>
+<p>For every prompt in both views, high-urgency recall is 1.000 (zero
+false negatives), injury-true recall is 1.000 (zero false negatives),
+and the measured hallucination rate is 0.000. These are sample
+measurements, not safety guarantees. Run-to-run agreement is unavailable
+(<code>null</code>) because each prompt has one run.</p>
+<p><strong>Table 7 — Recorded all-view mean usage and latency.</strong>
+Token values are tokens per observation; latency is seconds per
+observation. Dollar cost is not available because price constants are
+unset.</p>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr>
+<th>Prompt</th>
+<th style="text-align: right;">Input tokens</th>
+<th style="text-align: right;">Output tokens</th>
+<th style="text-align: right;">Reasoning tokens</th>
+<th style="text-align: right;">Latency (s)</th>
+<th>Cost / 1,000</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td style="text-align: right;">1531.9</td>
+<td style="text-align: right;">212.85</td>
+<td style="text-align: right;">118.95</td>
+<td style="text-align: right;">1.890</td>
+<td>Not available</td>
+</tr>
+<tr>
+<td>B-k3</td>
+<td style="text-align: right;">2261.9</td>
+<td style="text-align: right;">195.15</td>
+<td style="text-align: right;">101.10</td>
+<td style="text-align: right;">2.337</td>
+<td>Not available</td>
+</tr>
+<tr>
+<td>B-k5</td>
+<td style="text-align: right;">2585.9</td>
+<td style="text-align: right;">197.70</td>
+<td style="text-align: right;">103.80</td>
+<td style="text-align: right;">1.918</td>
+<td>Not available</td>
+</tr>
+<tr>
+<td>B-k8</td>
+<td style="text-align: right;">3090.9</td>
+<td style="text-align: right;">187.70</td>
+<td style="text-align: right;">93.80</td>
+<td style="text-align: right;">2.425</td>
+<td>Not available</td>
+</tr>
+<tr>
+<td>C</td>
+<td style="text-align: right;">1750.9</td>
+<td style="text-align: right;">314.10</td>
+<td style="text-align: right;">127.00</td>
+<td style="text-align: right;">1.911</td>
+<td>Not available</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Takeaway:</strong> A has the lowest recorded mean input
+tokens and latency in this single development run; provider cost cannot
+be inferred from these numbers.</p>
+<h2 id="error-analysis">5. Error analysis</h2>
+<p>The only invalid stored result is <code>dev|DEV-20|C|1</code>. It
+failed the required exactly-one-<code>&lt;final_json&gt;</code>-block
+contract; parse and schema checks are false. It remains an invalid
+prediction for claim type, urgency, and extracted fields, not a missing
+observation. No raw response body is reproduced.</p>
+<p>DEV-13 has a strict location mismatch for all five prompts but passes
+the lenient location rule. B-k8 also has one
+<code>injury_reported</code> exact mismatch on DEV-12. No other valid
+classification or extraction mismatches were identified.</p>
+<p><strong>Table 8 — Actual failing observation counts versus the
+rubric’s 15-case minimum.</strong> A failure case here means one
+observation with at least one recorded mismatch or invalid output;
+counts are not padded or simulated.</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 26%" />
+<col style="width: 26%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr>
+<th>Prompt</th>
+<th style="text-align: right;">Actual failing observations (n=20)</th>
+<th style="text-align: right;">Invalid stored results</th>
+<th style="text-align: right;">Shortfall to 15</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr>
+<td>B-k3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr>
+<td>B-k5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr>
+<td>B-k8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr>
+<td>C</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">13</td>
+</tr>
+</tbody>
+</table>
+<p>The required 15 categorized failures per prompt is <strong>not
+met</strong>. The <a
+href="development_error_analysis.xlsx">failure-analysis workbook</a>
+contains only the recorded cases and the shortfall; the <a
+href="development_error_analysis.md">narrative error analysis</a>
+explains them.</p>
+<h2 id="findings-and-decision-questions">6. Findings and decision
+questions</h2>
+<ul>
+<li><strong>Does few-shot beat zero-shot?</strong> Not in these data. A,
+B-k3, and B-k5 tie on classification and all reported field metrics;
+B-k8 has the additional injury-field mismatch.</li>
+<li><strong>Does increasing k from 3 to 5 to 8 improve
+accuracy?</strong> No classification improvement is observed. Increasing
+to k=8 did not improve scores and coincides with the single B-k8 injury
+mismatch; this sample cannot establish a causal prompt effect.</li>
+<li><strong>Does reasoning help ambiguous or multi-incident messages,
+and is its extra cost justified?</strong> Not established. Prompt C is
+an evidence-summary prompt rather than the specified step-by-step CoT
+prompt, there is no controlled case-level benefit analysis, it has one
+invalid response, and no dollar cost is available.</li>
+<li><strong>What should serve 5,000 messages/day?</strong> Do not ship
+any prompt on this evidence. Carry A as a simple control into the
+required held-out and load-tested comparison: it ties A/B classification
+performance while having the lowest measured input-token use and latency
+here. This is a candidate for testing, not a production
+recommendation.</li>
+</ul>
+<h2 id="proposed-production-strategy-and-guardrails">7. Proposed
+production strategy and guardrails</h2>
+<p>Keep the model behind a controlled intake service and use schema
+validation before downstream processing. Reject malformed or unsupported
+outputs; route invalid responses, unresolved conflicts, and high-risk
+cases to a trained reviewer. Do not convert an invalid response into
+confident nulls. Log prompt/model versions and operational metrics with
+appropriate data controls. Monitor parse/schema rates, injury and
+high-urgency false negatives, identifier hallucinations, latency,
+throughput, and token use. Before a 5,000-message/day deployment,
+complete held-out evaluation, independent label review, load/capacity
+testing, and a cost measurement using approved prices. The schema has no
+abstention/confidence field, so any confidence gate or abstention
+workflow needs a separately approved design.</p>
+<h2 id="rubric-status-limitations-and-next-steps">8. Rubric status,
+limitations, and next steps</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Status</th>
+<th>Evidence / remaining work</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20 development + 60 held-out records</td>
+<td>COMPLETE (structure only)</td>
+<td>Both JSONL files validate; no held-out prediction results are
+presented.</td>
+</tr>
+<tr>
+<td>Independent review of at least 20 labels</td>
+<td>NOT COMPLETE</td>
+<td>A blank <a href="development_label_review_worksheet.xlsx">20-record
+worksheet</a> is prepared; no responses or agreement statistic
+exist.</td>
+</tr>
+<tr>
+<td>One-page labeling guide</td>
+<td>COMPLETE</td>
+<td><a href="one_page_labeling_guide.md">Concise guide</a> derived from
+the rubric and project rules; rendered to one A4 page.</td>
+</tr>
+<tr>
+<td>A and B-k3/B-k5/B-k8 prompt library</td>
+<td>PARTIAL</td>
+<td>All exist; only k=8 spans all six claim types.</td>
+</tr>
+<tr>
+<td>Prompt C step-by-step reasoning strategy</td>
+<td>PARTIAL</td>
+<td>Existing prompt asks for an evidence summary; a separately versioned
+candidate is untested and does not claim equivalence to CoT.</td>
+</tr>
+<tr>
+<td>Optional Prompt D</td>
+<td>OPTIONAL / NOT IMPLEMENTED</td>
+<td>No D prompt file is present.</td>
+</tr>
+<tr>
+<td>Same held-out set, three runs per prompt</td>
+<td>NOT COMPLETE</td>
+<td>The 60-record held-out evaluation has not been run.</td>
+</tr>
+<tr>
+<td>Classification, field, validity, safety and usage metrics</td>
+<td>COMPLETE for development only</td>
+<td>See this report and the verified development bundle; not test
+metrics.</td>
+</tr>
+<tr>
+<td>At least 15 categorized failures per prompt</td>
+<td>NOT COMPLETE</td>
+<td>Actual development failure counts are 1, 1, 1, 2, and 2.</td>
+</tr>
+<tr>
+<td>4–6 page report PDF</td>
+<td>COMPLETE</td>
+<td>Locally rendered A4 PDF verified at four pages with page numbers and
+tables within page bounds.</td>
+</tr>
+<tr>
+<td>Error-analysis sheet</td>
+<td>PARTIAL</td>
+<td>Workbook contains actual failures only; the rubric’s count threshold
+is unmet.</td>
+</tr>
+<tr>
+<td>Demo/screenshots</td>
+<td>NOT COMPLETE</td>
+<td>Checklist exists; no human-recorded demo or screenshots are
+included.</td>
+</tr>
+</tbody>
+</table>
+<p>Immediate next steps are a second-person review of at least 20
+labels, resolving the documented adjudication policy, and conducting the
+held-out protocol only when authorized. Do not tune prompts against the
+held-out split.</p>
+<h2 id="artifacts-and-provenance">9. Artifacts and provenance</h2>
+<p>The report uses only the verified development evaluation bundle: <a
+href="../outputs/evaluations/dev-f9639d694d88-e7b8df00/results.csv"><code>results.csv</code></a>,
+<a
+href="../outputs/evaluations/dev-f9639d694d88-e7b8df00/metrics.json"><code>metrics.json</code></a>,
+and <a
+href="../outputs/evaluations/dev-f9639d694d88-e7b8df00/manifest.json"><code>manifest.json</code></a>.
+The manifest records <code>split: dev</code>, the plan digest, dataset
+and prompt hashes, and the exact isolated results-store hash.</p>
+<p>Other submission materials: <a href="../README.md">README</a>, <a
+href="../prompts/README.md">prompt library</a>, <a
+href="../data/labeling_guide.md">detailed labeling guide</a>, <a
+href="one_page_labeling_guide.md">one-page guide</a>, <a
+href="development_label_review_worksheet.xlsx">blank reviewer
+worksheet</a>, <a href="development_error_analysis.md">development error
+analysis</a>, <a href="development_error_analysis.xlsx">failure-analysis
+workbook</a>, and <a href="demo_checklist.md">demo checklist</a>.</p>
+</body>
+</html>
